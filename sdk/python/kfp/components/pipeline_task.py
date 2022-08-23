@@ -324,7 +324,7 @@ class PipelineTask:
         def expand_argument_list(argument_list) -> Optional[List[str]]:
             if argument_list is None:
                 return None
-            logging.warning(json.dumps(argument_list.keys()))
+            logging.warning(len(argument_list))
 
             expanded_list = []
             for part in argument_list:
@@ -335,6 +335,7 @@ class PipelineTask:
                         expanded_list.extend(expanded_part)
                     else:
                         expanded_list.append(str(expanded_part))
+            logging.warning(json.dumps(expanded_list))
             return expanded_list
 
         container_spec = component_spec.implementation.container
