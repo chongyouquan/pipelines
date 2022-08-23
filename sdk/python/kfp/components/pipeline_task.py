@@ -225,7 +225,7 @@ class PipelineTask:
             for input_name, input_spec in component_inputs.items()
         }
         for input_name, input_spec in component_inputs.items():
-            logging.warning(f"{input_name}: {input_spec.type}")
+            logging.warning(f"{input_name}: {input_spec.type}, {input_spec.default}")
         logging.warning("args")
         for arg in args:
             logging.warning(repr(arg))
