@@ -224,6 +224,11 @@ class PipelineTask:
             input_name: input_spec
             for input_name, input_spec in component_inputs.items()
         }
+        for input_name, input_spec in component_inputs.items()
+            logging.warning(f"{input_name}: {input_spec.type}")
+        logging.warning("args")
+        for arg in args:
+            logging.warning(repr(arg))
         component_outputs = component_spec.outputs or {}
         outputs_dict = {
             output_name: output_spec
@@ -324,7 +329,6 @@ class PipelineTask:
         def expand_argument_list(argument_list) -> Optional[List[str]]:
             if argument_list is None:
                 return None
-            logging.warning(len(argument_list))
 
             expanded_list = []
             for part in argument_list:
