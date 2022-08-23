@@ -23,6 +23,7 @@ from typing import (Any, Callable, Dict, List, Mapping, Optional, Set, Tuple,
                     Union)
 import uuid
 import warnings
+import logging
 
 from google.protobuf import json_format
 import kfp
@@ -216,6 +217,8 @@ class Compiler:
                 pipeline_channels=pipeline_args,
                 is_root_group=True,
             ))
+
+        logging.warn(f"compiler: {repr(pipeline_spec)}")
 
         root_group = pipeline.groups[0]
 
