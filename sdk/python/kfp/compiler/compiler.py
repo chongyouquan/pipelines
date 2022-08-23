@@ -218,8 +218,6 @@ class Compiler:
                 is_root_group=True,
             ))
 
-        logging.warn(f"compiler: {repr(pipeline_spec)}")
-
         root_group = pipeline.groups[0]
 
         all_groups = self._get_all_groups(root_group)
@@ -241,6 +239,7 @@ class Compiler:
             condition_channels=condition_channels,
             name_to_for_loop_group=name_to_for_loop_group,
         )
+        logging.warn(f"compiler - inputs: {repr(inputs)}")
         dependencies = self._get_dependencies(
             pipeline=pipeline,
             root_group=root_group,
