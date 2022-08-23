@@ -324,7 +324,7 @@ class PipelineTask:
         def expand_argument_list(argument_list) -> Optional[List[str]]:
             if argument_list is None:
                 return None
-            logging.warning(json.dumps(argument_list))
+            logging.warning(json.dumps(argument_list.keys()))
 
             expanded_list = []
             for part in argument_list:
