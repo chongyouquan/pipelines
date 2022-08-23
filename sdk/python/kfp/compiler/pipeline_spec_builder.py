@@ -16,6 +16,7 @@
 import json
 import re
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+import logging
 
 from google.protobuf import json_format
 from google.protobuf import struct_pb2
@@ -1067,6 +1068,7 @@ def build_spec_by_group(
                 if subgroup.container_spec is not None:
                     subgroup_container_spec = builder.build_container_spec_for_task(
                         task=subgroup)
+                    logging.warning(repr(subgroup_container_spec))
                     deployment_config.executors[
                         executor_label].container.CopyFrom(
                             subgroup_container_spec)
