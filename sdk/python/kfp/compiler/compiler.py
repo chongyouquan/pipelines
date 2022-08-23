@@ -239,7 +239,6 @@ class Compiler:
             condition_channels=condition_channels,
             name_to_for_loop_group=name_to_for_loop_group,
         )
-        logging.warn(f"compiler - inputs: {repr(inputs)}")
         dependencies = self._get_dependencies(
             pipeline=pipeline,
             root_group=root_group,
@@ -261,6 +260,7 @@ class Compiler:
                 group_name_to_parent_groups=group_name_to_parent_groups,
                 name_to_for_loop_group=name_to_for_loop_group,
             )
+        logging.warn(f"compiler - pipeline_spec: {repr(pipeline_spec)}")
 
         builder.build_exit_handler_groups_recursively(
             parent_group=root_group,
