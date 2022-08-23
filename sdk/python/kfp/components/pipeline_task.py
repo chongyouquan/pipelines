@@ -16,6 +16,8 @@
 import copy
 import re
 from typing import Any, List, Mapping, Optional, Union
+import logging
+import json
 
 from kfp.components import constants
 from kfp.components import pipeline_channel
@@ -322,6 +324,7 @@ class PipelineTask:
         def expand_argument_list(argument_list) -> Optional[List[str]]:
             if argument_list is None:
                 return None
+            logging.warning(json.dumps(argument_list))
 
             expanded_list = []
             for part in argument_list:
